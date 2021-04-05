@@ -1,3 +1,6 @@
+# Anton Buguev BS19-02
+# a.buguev@innopolis.university
+
 import random
 from PIL import Image, ImageChops, ImageDraw, ImageStat
 
