@@ -3,13 +3,14 @@
 
 import random
 from PIL import Image, ImageChops, ImageDraw, ImageStat
+import tqdm
 
 # Open image that we want to redraw
 original_image = Image.open("input.png")
 
 # Size of population and number of generations
 population_size = 10
-num_generations = 200000
+num_generations = 500000
 
 # Function to find firness for current image
 # The less number, the better image fits
@@ -81,12 +82,16 @@ def create_population(population):
 
 # Function to draw image
 def draw_image(population):
-
+    # Create counter to see how much generations have passed and how much time approximately left
+    counter = tqdm.tqdm(total = num_generations, desc = 'Generations', position = 0)
     # For certain amount of times we generate population, 
     # by removing inappropriate images, i.e. with high fitness value
     # and by generating new images with more '*' signs
     for i in range(num_generations):
         population = create_population(population)
+
+        # Update the counter
+        counter.update(1)
 
     # Since the best image will be on the first place, we just return it
     return population[0][1]
