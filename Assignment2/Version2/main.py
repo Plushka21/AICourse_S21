@@ -12,7 +12,7 @@ population_size = 262144 # Assuming that original image is 512x512, population s
 num_generations = 100
 
 # Open original image
-original_image = Image.open("3.0input.png")
+original_image = Image.open("input.png")
 
 # Calculate fitness value for specific member of population
 def calculate_fitness(member):
@@ -108,4 +108,4 @@ if __name__ == "__main__":
     # Draw image
     new_image = draw_image(population)
     # Save result
-    new_image.save("h.png")
+    new_image.save("outputpng")
